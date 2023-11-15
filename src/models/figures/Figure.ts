@@ -5,10 +5,10 @@ export enum FigureNames {
     FIGURE = "Фигура", 
     KING = "Король", 
     KNIGHT = "Конь", 
-    PAWN = "Ферзь", 
-    QUEEN = "Королева", 
+    PAWN = "Пешка", 
+    QUEEN = "Ферзь", 
     BISHOP = "Слон",
-    ROOK = "Пешка"
+    ROOK = "Ладья"
 }
 export class Figure {
     color: Colors;

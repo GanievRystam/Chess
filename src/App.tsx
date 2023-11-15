@@ -34,7 +34,7 @@ function App() {
       restart={restart}
       />
       <BoardComponent board={board} setBoard={setBoard} currentPlayer={currentPlayer} swapPlayer={swapPlayer}/>
-      <div>
+      <div className='lost-wrap'>
         <LostFigures title='Чёрные фигуры' figures={board.lostBlackFigures}/>
         <LostFigures title='Белые фигуры' figures={board.lostWhiteFigures}/>
       </div>

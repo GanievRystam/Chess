@@ -24,9 +24,6 @@ export const BoardComponent: FC<BoardProps> = ({board, setBoard, currentPlayer, 
                 setSelectedCell(cell);
             }
         }
-        if(cell.figure) {
-            setSelectedCell(cell);
-        }
     }
 
     useEffect(() => {
@@ -43,7 +40,7 @@ export const BoardComponent: FC<BoardProps> = ({board, setBoard, currentPlayer, 
     }
     return (
         <div>
-            <h3>Текущий ход {currentPlayer?.color}</h3>
+            <h3 className="currentMat">Текущий ход {currentPlayer?.color}</h3>
             <div className="board">
                 {board.cells.map((row:Cell[], index:number) =>
                 <React.Fragment key={index}>
