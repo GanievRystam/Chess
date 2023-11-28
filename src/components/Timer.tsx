@@ -1,6 +1,7 @@
 import React, {FC, useState, useRef, useEffect} from "react";
 import { Player } from "../models/Player";
 import { Colors } from "../models/Colors";
+import Win from "./Win";
 
 interface TimerProps {
     currentPlayer: Player | null;
@@ -29,19 +30,28 @@ const Timer: FC<TimerProps> = ({currentPlayer, restart}) => {
         restart();
     }
     function decrementBlackTimer() {
-        setBlackTime(prev => prev -1)
+        if( blackTime > 0) {
+            setBlackTime(prev => prev -1)
+        }
     }
     function decrementWhiteTimer() {
         setWhiteTime(prev => prev - 1)
     }
     return (
-        <div>
-            <div className="timer">
-                <button className="btn" onClick={handleRestart}>Restart</button>
-                <h1>Черные = {blackTime}</h1>
-                <h1>Белые = {whiteTime}</h1>
+        <>
+            <div>
+                <div className="timer">
+                    <button className="btn" onClick={handleRestart}>Restart</button>
+                    <h1>Черные = {blackTime > 0 ? blackTime : ''}</h1>
+                    <h1>Белые = {whiteTime > 0 ? whiteTime : ''}</h1>
+                </div>
             </div>
-        </div>
+            {blackTime <= 0? 
+            (<Win restart={handleRestart} blackTime= {blackTime} whiteTime= {whiteTime}/>)
+            :(whiteTime <=0) ? 
+            (<Win restart={handleRestart} blackTime= {blackTime} whiteTime= {whiteTime}/>)
+            :('')}
+        </>
     )
 }
 

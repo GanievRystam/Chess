@@ -6,6 +6,7 @@ import { Player } from './models/Player';
 import { Colors } from './models/Colors';
 import LostFigures from './components/LostFigures';
 import Timer from './components/Timer';
+import Win from './components/Win';
 
 function App() {
   const [board, setBoard] = useState(new Board);

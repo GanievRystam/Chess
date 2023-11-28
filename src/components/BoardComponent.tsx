@@ -13,7 +13,6 @@ export const BoardComponent: FC<BoardProps> = ({board, setBoard, currentPlayer, 
     const [selectedCell, setSelectedCell] = useState<Cell | null>(null);
 
     function click(cell: Cell) {
-        console.log(selectedCell);
         if(selectedCell && selectedCell !== cell && selectedCell.figure?.canMove(cell)) {
             selectedCell.moveFigure(cell);
             swapPlayer();
@@ -40,7 +39,7 @@ export const BoardComponent: FC<BoardProps> = ({board, setBoard, currentPlayer, 
     }
     return (
         <div>
-            <h3 className="currentMat">Текущий ход {currentPlayer?.color}</h3>
+            <h3 className="currentMat">Текущий ход: {currentPlayer?.color.toUpperCase()}</h3>
             <div className="board">
                 {board.cells.map((row:Cell[], index:number) =>
                 <React.Fragment key={index}>
